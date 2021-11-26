@@ -2,10 +2,6 @@ package tradeTransmission;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.Assert.*;
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,7 +19,7 @@ public class TradeTransmissionTest {
     public void testVersionLow() throws Exception
     {
 		SimpleDateFormat dateform=new SimpleDateFormat("dd/mm/yyyy");
-		Date maturityDate=dateform.parse("20/12/2021");
+		Date maturityDate=dateform.parse("20/12/2022");
         Date todaysDate=Calendar.getInstance ().getTime ();
         //Same Version as before and Changing Counter-Party ID to CP-2
         Trade t4=new Trade("T1",1,"CP-2","B1",maturityDate, todaysDate, 'N');
@@ -43,7 +39,6 @@ public class TradeTransmissionTest {
 		tflow.addTrade(t2);
 
         assertEquals(t2,tflow.allTrade.get("T4"));
-
     }
    
  
